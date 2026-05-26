@@ -28,7 +28,7 @@ To write and execute Assembly Language Programs to perform arithmetic operations
 
 
 ## FLOW CHART
-<img width="707" height="1024" alt="image" src="https://github.com/user-attachments/assets/b5a7062d-e294-47cd-9683-a40de25e82de" />
+<img width="500" height="700" alt="image" src="https://github.com/user-attachments/assets/b5a7062d-e294-47cd-9683-a40de25e82de" />
 
 
 #### Program
@@ -56,17 +56,20 @@ END
 
 | MEMORY LOCATION (INPUT) | MEMORY LOCATION (OUTPUT) |
 | ----------------------- | ------------------------ |
-|       1200🔢       01         12
-
-|         1200                    |
+|      1200 : 12          |        1204 : 24         |
+|      1201 : 34          |        1205 : 68         |  
+|      1202 : 12          |        1206 : 00         |
+|      1203 : 34          |                          |  
 
 #### Manual Calculations
 
-(Add your calculation here)
+![WhatsApp Image 2026-02-06 at 1 10 31 PM](https://github.com/user-attachments/assets/d29ad7a9-80dd-4f58-8062-47d13d7566fe)
+
 
 ---
 
 ## OUTPUT IMAGE FROM MASM SOFTWARE
+<img width="655" height="447" alt="add" src="https://github.com/user-attachments/assets/6f02951c-9bf9-4c77-9365-f9f0ef77f31b" />
 
 ## 2. SUBTRACTION
 
@@ -85,23 +88,21 @@ END
 
 #### Program
 ```asm
-CODE SEGMENT
-ASSUME CS: CODE, DS: CODE
-ORG 1000H
-MOV SI,2000H
-MOV CL,00H
-MOV AX,[SI]
-MOV BX,[SI+02H]
-SUB AX,BX
-JNC L1
-INC CL
-L1:
-MOV [SI+04H],AX
-MOV [SI+06H],CL
-MOV AH,4CH
-INT 21H
-CODE ENDS
-END
+code segment
+assume cs:code,ds:code
+org 1000h
+mov AX,1234h
+mov BX,1234h
+sub AX,BX
+jnc down
+inc CL
+down:mov SI,1200h
+mov [sI],AX
+mov [SI+2],CL
+mov ah,4ch
+int 21H
+code ends
+end
 ```
 
 
@@ -109,16 +110,20 @@ END
 
 | MEMORY LOCATION (INPUT) | MEMORY LOCATION (OUTPUT) |
 | ----------------------- | ------------------------ |
-|                         |                          |
+|      1200 : 12          |        1204 : 00         |
+|      1201 : 34          |        1205 : 00         |  
+|      1202 : 12          |                          |
+|      1203 : 34          |                          |  
 
 #### Manual Calculations
 
-(Add your calculation here)
+![WhatsApp Image 2026-02-06 at 1 10 31 PM (1)](https://github.com/user-attachments/assets/32c20ead-32db-4e05-9870-8d1553363086)
 
 ---
 
 
 ## OUTPUT SCREEN FROM MASM SOFTWARE
+<img width="638" height="429" alt="sub" src="https://github.com/user-attachments/assets/e76f46a4-92c5-4f74-a10e-b98fc919f7f0" />
 
 ## 3. MULTIPLICATION
 
@@ -138,35 +143,41 @@ END
 #### Program
 
 ```asm
-CODE SEGMENT
-ASSUME CS: CODE, DS: CODE
-ORG 1000H
-MOV SI,2000H
+code segment
+assume cs:code,ds:code
+org 1000h
 MOV DX,0000H
-MOV AX,[SI]
-MOV BX,[SI+02H]
-MUL BX
-MOV [SI+04H],AX
-MOV [SI+06H],DX
-MOV AH,4CH
-INT 21H
-CODE ENDS
-END
+mov AX,1234h
+mov BX,1234h
+mul BX
+mov si,1200h
+mov [si],ax
+mov [si+02h],dx
+mov ah,4ch
+int 21h
+code ends
+end
+
 ```
 
 #### Output Table
 
 | MEMORY LOCATION (INPUT) | MEMORY LOCATION (OUTPUT) |
 | ----------------------- | ------------------------ |
-|                         |                          |
+|      1200 : 12          |        1204 : 90         |
+|      1201 : 34          |        1205 : 5A         |  
+|      1202 : 12          |        1206 : 4B         |
+|      1203 : 34          |        1207 : 01         | 
 
 #### Manual Calculations
 
-(Add your calculation here)
+![WhatsApp Image 2026-02-06 at 1 10 32 PM](https://github.com/user-attachments/assets/637191e3-4f0c-4584-a880-0a351e22c7ac)
+
 
 ---
 
 ## OUTPUT SCREEN FROM MASM SOFTWARE
+<img width="636" height="431" alt="mul" src="https://github.com/user-attachments/assets/8dd2651e-183f-4b8a-810c-90728a9de976" />
 
 ## 4. DIVISION
 
@@ -184,33 +195,40 @@ END
 
 ```asm
 CODE SEGMENT
-ASSUME CS: CODE, DS: CODE
+ASSUME CS:CODE,DS:CODE
 ORG 1000H
-MOV SI,2000H
 MOV DX,0000H
-MOV AX,[SI]
-MOV BX,[SI+02H]
+MOV AX,1234H
+MOV BX,1234H
 DIV BX
-MOV [SI+04H],AX
-MOV [SI+06H],DX
+MOV SI,1200H
+MOV [SI],AX
+MOV [SI+02H],DX
 MOV AH,4CH
 INT 21H
 CODE ENDS
 END
+
 ```
 
 #### Output Table
 
 | MEMORY LOCATION (INPUT) | MEMORY LOCATION (OUTPUT) |
 | ----------------------- | ------------------------ |
-|                         |                          |
+|      1200 : 12          |        1204 : 01         |
+|      1201 : 34          |        1205 : 00         |  
+|      1202 : 12          |        1206 : 00         |
+|      1203 : 34          |        1207 : 00         |  
 
 #### Manual Calculations
 
-(Add your calculation here)
+![WhatsApp Image 2026-02-06 at 1 10 32 PM (1)](https://github.com/user-attachments/assets/7890faf2-47c1-43e8-a720-49af56c2bee4)
+
 
 ---
 ## OUTPUT FROM MASM SOFTWARE
+<img width="636" height="425" alt="div" src="https://github.com/user-attachments/assets/b197ccc6-296d-42b0-872e-b8b19dd5bebc" />
+
 
 
 
